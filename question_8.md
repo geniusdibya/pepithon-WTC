@@ -22,15 +22,15 @@ This command should trigger the installation process where you will be prompted 
 Once you continue, you will be prompted to select the postfix configuration which suits your needs.
 
 The options specified and their meanings are.
-1. No Configuration
+1. **No Configuration**
 This specifies that no new configuration should be created or the existing configuration if any should be left intact.
-1. Internet Site
+1. **Internet Site**
 This option is used to send and receive email over the internet using Simple Mail Transfer Protocol (SMTP)
-1. Internet with Smarthost
+1. **Internet with Smarthost**
 This option receives email via SMTP but sends via another server. So our host acts as a relay.
-1. Satelite system
+1. **Satelite system**
 This option will configure postfix to send as well as receive email using a different server. 
-1. Local Only
+1. **Local Only**
 This configuration is used when mail is required to be delivered to users on the same system only and no network is required.
 
 For our setup we will be using Internet site so as to be able to send and receive email via internet from the host itself.
