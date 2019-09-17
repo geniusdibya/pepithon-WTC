@@ -8,11 +8,11 @@ Originally written in 1997 by Wietse Venema at the IBM Thomas J. Watson Research
 
 
 ## Prerequisites:
-	1. ubuntu 18.04 installed
-	1. A fully qualified qualified domain name (FQDN)
+1. Ubuntu 18.04 installed
+1. A fully qualified qualified domain name (FQDN)
 
 
-##Installation:
+## Installation:
 Postfix repositories are available via the default package manager provided by ubuntu. So we can directly install using the following command.
 
 	sudo apt install postfix
@@ -22,15 +22,15 @@ This command should trigger the installation process where you will be prompted 
 Once you continue, you will be prompted to select the postfix configuration which suits your needs.
 
 The options specified and their meanings are.
-	1. No Configuration
+1. **No Configuration**
 This specifies that no new configuration should be created or the existing configuration if any should be left intact.
-	1. Internet Site
+1. **Internet Site**
 This option is used to send and receive email over the internet using Simple Mail Transfer Protocol (SMTP)
-	1. Internet with Smarthost
+1. **Internet with Smarthost**
 This option receives email via SMTP but sends via another server. So our host acts as a relay.
-	1. Satelite system
+1. **Satelite system**
 This option will configure postfix to send as well as receive email using a different server. 
-	1. Local Only
+1. **Local Only**
 This configuration is used when mail is required to be delivered to users on the same system only and no network is required.
 
 For our setup we will be using Internet site so as to be able to send and receive email via internet from the host itself.
@@ -46,13 +46,19 @@ In the results, we will be able to see port 25 is open and listening.
 
 You can change the settings at any point of time by editing the setting at /etc/postfix/main.cf
 
-We can create virtual email addresses and then map them to the local linux.
+## Email addresses & User mapping
+We can create virtual email addresses and then map them to the local linux user accounts.
 This can be created as below.
-	1. Create file /etc/postfix/virtual
-	1. Add email addresses followed by a space and then by the username of the local linux account. You can add multiple such lines for each email address.
-	1. Run sudo postmap /etc/postfix/virtual to add the mapping file to postfix config
-	1. Restart postfix server using sudo service postfix restart.
+1. Create file /etc/postfix/virtual
+1. Add email addresses followed by a space and then by the username of the local linux account . You can add multiple such lines for each email address.
+1. Run sudo postmap /etc/postfix/virtual to add the mapping file to postfix config
+1. Restart postfix server using sudo service postfix restart.
 
+For example, the contents of the virtual file could be like this:
+mail@example.com ubuntu
+noreply@example.com ubuntu
+
+So all the emails to mail@example.com and noreply@example.com will be delivered to the mailbox for the ubuntu user.
 ## Test Setup
 To test you setup use the below command by replacing the mail address by the one specified in you /etc/postfix/virtual file.
 
