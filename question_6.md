@@ -1,6 +1,7 @@
 # Question 6: How to send emails from php mail function using a SMTP server.
 
-## PHP has a built in mail function which is used to send email from PHP scripts. This function comes very handy for setting up automated alerts or transactional emails.
+## Introduction
+PHP has a built in mail function which is used to send email from PHP scripts. This function comes very handy for setting up automated alerts or transactional emails.
 
 The basic syntax of the mail function is as follows.
 
