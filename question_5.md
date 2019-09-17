@@ -39,17 +39,17 @@ This will generate two files, viz., mail.private & mail.txt
 		SignatureAlgorithm  rsa-sha256
 	1. Append the following lines to the end of the file
 		#OpenDKIM user
-		# Remember to add user postfix to group opendkim
+		#Remember to add user postfix to group opendkim
 		UserID             opendkim
 
-		# Map domains in From addresses to keys used to sign messages
+		#Map domains in From addresses to keys used to sign messages
 		KeyTable           refile:/etc/opendkim/key.table
 		SigningTable       refile:/etc/opendkim/signing.table
 
-		# Hosts to ignore when verifying signatures
+		#Hosts to ignore when verifying signatures
 		ExternalIgnoreList  /etc/opendkim/trusted.hosts
 
-		# A set of internal hosts whose mail should be signed
+		#A set of internal hosts whose mail should be signed
 		InternalHosts       /etc/opendkim/trusted.hosts
 1. Create key table, signing table & trusted host file as mentioned in the config above.
 	sudo mkdir /etc/opendkim
