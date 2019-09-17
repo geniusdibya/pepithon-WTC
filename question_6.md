@@ -38,6 +38,7 @@ If the server requires authentication, then add the following lines
 After saving the changes to the ini file, restart apache server for the changes to take effect.
 
 ## A simple php mail example is given below.
+```php
 <?php
 
 	$to="user@example.com";
@@ -46,3 +47,4 @@ After saving the changes to the ini file, restart apache server for the changes 
 	$headers="From: noreply@example.com";
 	mail($to, $subject, $message, $headers);
 ?>
+```
